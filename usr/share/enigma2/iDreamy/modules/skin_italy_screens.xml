@@ -1,0 +1,962 @@
+<skin>
+	<!--
+	####################### mmark_Dreamy_ v.1.6.0 ###########################
+	#                                                                       #
+	#      bobsilvio         Version 2.0.0 for ItalySat      01-07-2015     #
+	#      mmark             Version 1.5.1 released          01-02-2015     #
+	#      mmark             Version 1.3.0 released          01-01-2015     #
+	#      mmark             Version 1.2.0 released          29-12-2014     #
+	#      mmark             Version 1.1.0 released          12-12-2014     #
+	#                                                                       #
+	#########################################################################
+	-->
+	<!-- ItalySat Blue Panel Principale Con infoCAM IT -->
+	<screen name="ItalysatBlue" title="ItalySat BluePanel" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nRGYB"/>
+		<ePixmap position="640,450" pixmap="iDreamy/menu/camcenter.png" size="256,256" alphatest="blend" zPosition="1" />
+		<!-- Cams Selection, News, Timeline, Parental Control, About, Icona Cam -->
+		<ePixmap position="45,95" size="80,100" pixmap="iDreamy/icons/emupic.png" alphatest="blend" zPosition="2"  />
+		<!-- Crypt icon (encrypted service?) -->
+		<ePixmap pixmap="iDreamy/icons/ico_crypt_off.png" position="170,110" size="80,40" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="iDreamy/icons/ico_crypt_on.png" position="170,110" size="80,40" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsCrypted</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<!-- Emu Crypt -->
+		<widget source="session.CurrentService" render="Label" position="230,107" size="290,26" halign="left" font="Regular;24" foregroundColor="yellow" backgroundColor="header" transparent="1" zPosition="5" >
+			<convert type="PliExtraInfo">CryptoEmu</convert>
+		</widget>
+		<!--  CAM Info -->
+		<widget source="session.CurrentService" render="Label" position="395,107" size="200,40" halign="right" font="Regular;24" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="2" >
+			<convert type="ItalySatInfo">CamName</convert>
+		</widget>
+		<!-- Keys CW -->
+		<eLabel position="170,140" size="425,1" backgroundColor="#202020" zPosition="2"/>
+		<eLabel text="CW0 :" position="115,145" size="100,40" font="Regular;20" foregroundColor="ltbluette" backgroundColor="header" transparent="1" />
+		<widget name="cw0"   position="170,145" size="420,40" halign="left" font="Regular;20" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="5" />
+		<eLabel text="CW1 :" position="115,170" size="100,40" font="Regular;20" foregroundColor="ltbluette" backgroundColor="header" transparent="1" />
+		<widget name="cw1"   position="170,170" size="420,40" halign="left" font="Regular;20" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="5" />
+		<eLabel position="50,200" size="545,1" backgroundColor="#202020" zPosition="2"/>
+		<widget name="config" position="50,220" size="545,140" font="Regular;22" itemHeight="30" scrollbarMode="showNever" transparent="1" zPosition="2" />
+		<eLabel position="50,320" size="545,1" backgroundColor="#202020" zPosition="2"/>
+		<!-- Server -->
+		<ePixmap position="45,340" size="90,55" pixmap="iDreamy/icons/inet.png" alphatest="blend" zPosition="2"  />
+		<!--  EMU Info  -->
+		<!--<widget source="session.CurrentService" render="FixedLabel" text="NeTWORK"   position="155,370" size="180,40" halign="left" font="Regular;22" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="6" >
+			<convert type="ItalySatInfo">Net</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.CurrentService" render="FixedLabel" text="Free To AIR" position="155,370" size="180,40" halign="left" font="Regular;22" foregroundColor="white" backgroundColor="header" transparent="1" zPosition="6" >
+			<convert type="ItalySatInfo">Fta</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.CurrentService" render="FixedLabel" text="EMuLATOR"  position="155,370" size="180,40" halign="left" font="Regular;22" foregroundColor="green" backgroundColor="header" transparent="1" zPosition="6" >
+			<convert type="ItalySatInfo">Emu</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.CurrentService" render="FixedLabel" text="LOCAL CaRD" position="155,370" size="180,40" halign="left" font="Regular;22" foregroundColor="yellow" backgroundColor="header" transparent="1" zPosition="6" >
+			<convert type="ItalySatInfo">Crd</convert>
+			<convert type="ConditionalShowHide" />
+		</widget> -->
+		<widget name="source" position="155,370" size="300,40" halign="left" font="Regular;22" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="6" />
+		<eLabel text="Server :" position="55,400" size="100,40" font="Regular;24" foregroundColor="ltbluette" backgroundColor="header" transparent="1" />
+		<widget name="address" position="155,400" size="380,60" halign="left" font="Regular;24" foregroundColor="#808080" backgroundColor="header" transparent="1" zPosition="5" />
+		<!-- Reader -->
+		<eLabel text="Reader :" position="55,435" size="100,40" font="Regular;24" foregroundColor="ltbluette" backgroundColor="header" transparent="1" />
+		<widget name="rearder" position="155,435" size="380,40" halign="left" font="Regular;24" foregroundColor="#808080" backgroundColor="header" transparent="1" zPosition="5" />
+		<eLabel position="50,475" size="545,1" backgroundColor="#202020" zPosition="2"/>
+		<!-- ECM -->
+		<ePixmap position="60,495" size="55,55" pixmap="iDreamy/icons/itimer.png" alphatest="blend" zPosition="2"  />
+		<!-- <widget source="session.CurrentService" render="Label" position="140,495" size="420,90" halign="left" font="Regular;54" foregroundColor="#404040" backgroundColor="header" transparent="1" zPosition="5" >
+			<convert type="ItalySatInfo">ItalyEcm</convert>
+		</widget>-->
+		<widget name="ecmtime" position="140,495" size="420,90" halign="left" font="Regular;54" foregroundColor="#404040" backgroundColor="header" transparent="1" zPosition="5" />
+		<!-- HOPS -->
+		<eLabel text="@" position="495,495" size="70,90" font="Regular;54" foregroundColor="#404040" backgroundColor="header" transparent="1" />
+		<!--<widget source="session.CurrentService" render="Label" position="560,495" size="60,90" halign="left" font="Regular;54" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="5" >
+			<convert type="ItalySatInfo">ItalyHops</convert>
+		</widget>-->
+		<widget name="hops" position="560,495" size="60,90" halign="left" font="Regular;54" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="5" />
+		<widget source="conninfo" render="Label" position="50,580" size="550,34" font="Regular;24" halign="center" backgroundColor="header" transparent="1" zPosition="3" />
+		<!-- Provider Data -->
+		<ePixmap position="840,90" size="65,55" pixmap="iDreamy/icons/tvinfo.png" alphatest="blend" zPosition="2"  />
+		<widget name="lab2" position="840,95" size="0,0" font="Regular;30" foregroundColor="ltbluette" backgroundColor="dreamy" transparent="1" zPosition="2" />
+		<widget name="caid" position="920,90" size="70,40" halign="left" font="Regular;24" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="5" />
+		<widget source="session.CurrentService" render="Label" position="990,90" size="240,40" font="Regular;24" foregroundColor="#FFFFFF" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="ServiceName">Provider</convert>
+		</widget>
+		<widget name="lab1" position="840,130" size="0,0" font="Regular;24" foregroundColor="ltbluette" backgroundColor="dreamy" transparent="1" zPosition="2" />
+		<widget source="session.CurrentService" render="Label" position="920,120" size="320,40" font="Regular;26" foregroundColor="yellow" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<widget name="lab3" position="840,170" size="320,40" font="Regular;24" foregroundColor="white" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<widget name="lab4" position="840,200" size="320,40" font="Regular;24" foregroundColor="white" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<eLabel position="830,240" size="450,5" backgroundColor="#FF000000" zPosition="2"/>
+		<!-- Panel SatType  -->
+		<widget source="session.FrontendInfo" render="Pixmap" pixmap="iDreamy/icons/sat.png"   position="840,270" size="70,70" zPosition="2" alphatest="blend" >
+			<convert type="FrontendInfo">TYPE</convert>
+			<convert type="ValueRange">0,0</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.FrontendInfo" render="Pixmap" pixmap="iDreamy/icons/dtt.png"   position="840,270" size="70,70" zPosition="2" alphatest="blend" >
+			<convert type="FrontendInfo">TYPE</convert>
+			<convert type="ValueRange">2,2</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.FrontendInfo" render="Pixmap" pixmap="iDreamy/icons/cable.png" position="840,270" size="70,70" zPosition="2" alphatest="blend" >
+			<convert type="FrontendInfo">TYPE</convert>
+			<convert type="ValueRange">1,1</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<!-- TUNER Info -->
+		<eLabel text="TUN :" position="900,260" size="320,40" font="Regular;24" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" />
+		<widget source="session.FrontendInfo" render="FixedLabel" text="A" position="975,260" zPosition="2" size="20,40" font="Regular;24" halign="left" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1">
+ 			<convert type="FrontendInfo">NUMBER</convert>
+ 			<convert type="ValueRange">0,0</convert>
+ 			<convert type="ConditionalShowHide" />
+ 		</widget>
+ 		<widget source="session.FrontendInfo" render="FixedLabel" text="B" position="975,260" zPosition="2" size="40,40" font="Regular;24" halign="left" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1">
+ 			<convert type="FrontendInfo">NUMBER</convert>
+ 			<convert type="ValueRange">1,1</convert>
+ 			<convert type="ConditionalShowHide" />
+ 		</widget>
+ 		<widget source="session.FrontendInfo" render="FixedLabel" text="C" position="975,260" zPosition="2" size="40,40" font="Regular;24" halign="left" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1">
+ 			<convert type="FrontendInfo">NUMBER</convert>
+ 			<convert type="ValueRange">2,2</convert>
+ 			<convert type="ConditionalShowHide" />
+ 		</widget>
+ 		<widget source="session.FrontendInfo" render="FixedLabel" text="D" position="975,260" zPosition="2" size="40,40" font="Regular;24" halign="left" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1">
+ 			<convert type="FrontendInfo">NUMBER</convert>
+ 			<convert type="ValueRange">3,3</convert>
+ 			<convert type="ConditionalShowHide" />
+ 		</widget>
+		<!-- DEVICE Info -->
+		<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-S" position="1010,260" size="100,40" font="Regular;24" foregroundColor="yellow" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="FrontendInfo">TYPE</convert>
+			<convert type="ValueRange">0,0</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-C" position="1010,260" size="100,40" font="Regular;24" foregroundColor="yellow" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="FrontendInfo">TYPE</convert>
+			<convert type="ValueRange">1,1</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-T" position="1010,260" size="100,40" font="Regular;24" foregroundColor="yellow" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="FrontendInfo">TYPE</convert>
+			<convert type="ValueRange">2,2</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<eLabel text="SNR :" position="900,300" size="100,40" font="Regular;24" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<widget source="session.FrontendStatus" render="Label" position="975,300" size="120,40" font="Regular;24" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="FrontendInfo">SNR</convert>
+		</widget>
+		<widget source="session.FrontendStatus" render="Label" position="975,300" size="0,0" font="Regular;24" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="FrontendInfo">SNRdB</convert>
+		</widget>
+		<widget source="session.FrontendStatus" render="Progress" pixmap="iDreamy/buttons/bar_snr_big.png" position="840,335" size="405,6" borderWidth="1" borderColor="#202020" zPosition="2" >
+			<convert type="FrontendInfo">SNR</convert>
+		</widget>
+		<eLabel text="AGC :" position="1065,300" size="90,40" font="Regular;24" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<widget source="session.FrontendStatus" render="Label" position="1145,300" size="120,40" font="Regular;24" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="2" >
+			<convert type="FrontendInfo">AGC</convert>
+		</widget>
+		<eLabel position="830,370" size="425,5"   backgroundColor="#FF000000" zPosition="2"/>
+		<eLabel position="830,375" size="425,248" backgroundColor="#20000000" zPosition="2"/>
+		<!-- Email Info -->
+		<widget name="email" render="Label" position="840,380" size="400,220" font="Regular;22" halign="center" valign="top" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="3" />
+		<!-- Developers Info -->
+		<widget name="conn" render="Label" position="840,380" size="400,220" font="Regular;22" halign="center" valign="top" foregroundColor="red" backgroundColor="bluette" transparent="1" zPosition="3" />
+		<!-- eLabel name="DEBUG" text="IT001" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Blue Panel > Blue > Setting Menu IT -->
+	<screen name="ItalysatSettings" title="ItalySat Settings" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>		
+		<panel name="p800_Date"/>
+		<widget source="list" render="Listbox" position="50,95" size="545,520" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (50, 0), size = (500, 40), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (40, 40), png = 1) # index 1 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 22),gFont("Regular", 20)],
+					"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" pixmap="iDreamy/menu/ico_italy.png" size="160,160" alphatest="blend" zPosition="1" />
+		<ePixmap position="50,645"  pixmap="iDreamy/icons/italy_logo.png" size="550,44" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG"  text="IT002" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Blue Panel > Green > Backup Menu IT -->
+	<screen name="ItalyMenu" title="Italy Backup" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nR"/>
+		<widget source="menu" render="Listbox" position="50,95" size="545,520" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [ 
+					MultiContentEntryText(pos = (5, 5), size = (545, 30), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1) ],
+					"fonts": [gFont("Regular", 24)],
+					"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<ePixmap position="960,100" pixmap="iDreamy/menu/info_screen.png"  size="160,160" alphatest="blend" zPosition="2" />
+  		<widget source="menu" render="Listbox" position="840,300" size="400,110" scrollbarMode="showNever" selectionDisabled="1" transparent="1"  zPosition="2" >
+    			<convert type="TemplatedMultiContent">
+  					{"template": [ MultiContentEntryText(pos = (5, 1), size = (400, 100), flags = RT_HALIGN_CENTER|RT_VALIGN_BOTTOM|RT_WRAP, text = 2) ],
+  					"fonts": [gFont("Regular", 24)],
+  					"itemHeight": 100
+  					}
+  			</convert>
+  		</widget>
+		<ePixmap position="640,445" pixmap="iDreamy/menu/backup.png" size="160,160" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG"  text="IT003" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+	
+	<!-- ItalySat BackUpManager IT -->
+	<screen name="ItalyBackupManager" title="Backup Manager" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nRGY"/>
+		<panel name="M"/>
+		<widget name="lab1" position="50,95" size="760,50"  font="Regular; 22" halign="center" valign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="0" zPosition="2" />
+		<eLabel position="50,160" size="760,2" backgroundColor="#303030" zPosition="2"/>
+		<widget name="list" position="50,190" size="760,300" font="Regular; 24" itemHeight="30" foregroundColor="foreground" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />
+		<widget name="backupstatus" position="840,300" size="400,200" font="Regular; 24" halign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="5" />
+		<applet type="onLayoutFinish">
+			self["list"].instance.setItemHeight(30)
+		</applet>
+		<ePixmap position="960,100" pixmap="iDreamy/menu/info_screen.png"  size="160,160" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG"  text="IT004" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat BackUpManager IT -->
+	<screen name="ItalyBackupManagerMenu" title="ItalySat Backup Manager" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nRGYB"/>
+		<panel name="M"/>
+		<widget name="config" position="50,95" size="545,510" font="Regular;24" itemHeight="30" valign="top" scrollbarMode="showOnDemand" enableWrapAround="1" foregroundColor="foreground" transparent="1"  />
+		<ePixmap position="960,100" pixmap="iDreamy/menu/info_screen.png"  size="160,160" alphatest="blend" zPosition="2" />
+		<widget name="description" position="840,300" size="400,200" font="Regular;24" halign="center" transparent="1" zPosition="2" />
+		<widget name="footnote"    position="840,550" size="400,40"  font="Regular;24" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="1" zPosition="2" />
+	        <widget name="HelpWindow" pixmap="skin_default/vkey_icon.png" position="50,400" size="440,350" transparent="1" alphatest="on" />
+		<ePixmap position="640,445" pixmap="iDreamy/menu/backup.png" size="160,160" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG"  text="IT005" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat BackUpLog IT -->
+	<screen name="ItalyBackupManagerLogView" title="Backup Manager Log" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<widget name="waitingtext" position="0,0" size="0,0" />
+		<widget name="list" position="50,95" size="545,520" font="Regular;24" itemHeight="30" foregroundColor="grey" transparent="1" />
+		<ePixmap position="640,445" pixmap="iDreamy/menu/backup.png" size="160,160" alphatest="blend" zPosition="1" />
+		<ePixmap position="50,645"  pixmap="iDreamy/icons/italy_logo.png" size="550,44" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG"  text="IT006" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+	
+	<!-- ItalySat ImageManager IT -->
+	<screen name="ItalyImageManager" title="Image Manager" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nRGYB"/>
+		<panel name="M"/>
+		<widget name="lab1" position="50,95" size="760,50" font="Regular; 22" halign="center" valign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="0" zPosition="2" />
+		<eLabel position="50,160" size="760,2" backgroundColor="#303030" zPosition="2"/>
+		<widget name="list" position="50,190" size="760,200" font="Regular; 24" itemHeight="30" foregroundColor="foreground" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />
+		<ePixmap position="960,100" pixmap="iDreamy/menu/info_screen.png"  size="160,160" alphatest="blend" zPosition="2" />
+		<widget name="backupstatus" position="840,300" size="400,180" font="Regular; 24" halign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="5" />
+		<applet type="onLayoutFinish">
+			self["list"].instance.setItemHeight(30)
+		</applet>
+		<!-- eLabel name="DEBUG"  text="IT007" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Timeline Menu IT -->
+	<screen name="italysatShowPanel" title="Restore Menu" position="60,70" size="1160,620" backgroundColor="#10000000" >
+		<widget source="list" render="Listbox" position="20,20" size="1120,540" font="Regular;22" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" zPosition="1" >
+			<convert type="StringList" />
+		</widget>
+		<widget name="close" position="20,580" size="200,40" font="Regular; 22" halign="left" foregroundColor="red" backgroundColor="header"    transparent="1" zPosition="5" />
+		<!-- eLabel name="DEBUG"  text="IT008" position="40,40" size="300,60" font="Regular;40"   foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Blue Panel > Red > RAM Panel IT -->
+	<screen name="ItalyRamPanel" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGYB"/>
+		<widget name="memory" position="50,95"  size="545,50" font="Regular;20" valign="center" halign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="0" zPosition="1" />
+		<widget name="slide"  position="50,160" size="545,20" backgroundColor="ltbluette" borderWidth="1" zPosition="2" />
+		<widget name="config" position="50,200" size="545,200" font="Regular;24" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" zPosition="1" />
+		<ePixmap position="640,445" pixmap="iDreamy/menu/memory.png" size="160,160" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG"  text="IT009" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Blue Panel > Red > Device Manager  IT -->
+	<screen name="ItalyDevicesPanel" title="Mount Manager" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGYB"/>
+		<widget name="lab1" position="50,95" size="760,50" font="Regular;22" halign="left" itemHeight="30" foregroundColor="#ffffff" transparent="1" valign="top" zPosition="2" />
+		<widget source="list" render="Listbox" position="50,95" size="760,400" scrollbarMode="showOnDemand" enableWrapAround="0" foregroundColor="foreground"  transparent="1" zPosition="5">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (90, 0), size = (660, 30), font=0, text = 0),
+					MultiContentEntryText(pos = (90, 35), size = (660, 60), font=1, color=0x73c6ff, flags = RT_VALIGN_TOP, text = 1),
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (80, 80), png = 2),
+					],
+					"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
+					"itemHeight": 90
+				}
+			</convert>
+		</widget>
+		<!-- eLabel name="DEBUG"  text="IT010" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat DeviceConf IT -->
+	<screen name="ItalyDevicesConf" title="Choose where to mount your devices to:" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p900_Template"/>
+		<panel name="p900_Date"/>
+		<panel name="nRG"/>
+		<widget name="config" position="50,95" size="910,450" itemHeight="30" enableWrapAround="1" font="Regular;22" foregroundColor="foreground" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="Linconn" font="Regular;24" halign="left" position="50,580" size="910,40" valign="center" foregroundColor="#ffffff" />
+		<!-- eLabel name="DEBUG"  text="IT011" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gestore Kernel IT -->
+	<screen name="ItalyKernelModule" title="Kernel Download Manager" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRG"/>
+		<!-- ItalySat -->
+		<widget source="list" render="Listbox" position="50,95" size="545,500" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (50, 5), size = (700, 40), font=0, flags = RT_HALIGN_LEFT | RT_HALIGN_LEFT, text = 1),
+					MultiContentEntryPixmapAlphaBlend(pos=(5, 5), size=(34, 34), png=3),
+					],
+					"fonts": [gFont("Regular", 22)],
+					"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" size="160,160" pixmap="menu/devices.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG"  text="IT012" position="40,40" size="300,60" font="Regular;40" foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Blue Panel > Red > Gestore Network IT -->
+	<screen name="ItalyNetworkList" title="ItalySat Network List" flags="wfNoBorder" position="fill" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<widget  source="list" render="Listbox" position="50,95" size="545,520" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (50, 1), size = (500, 40), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 4), size = (40, 40), png = 1) # index 1 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 22),gFont("Regular", 20)],
+					"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" size="160,160" pixmap="menu/net.png" alphatest="blend"/>
+		<ePixmap position="50,645"  pixmap="iDreamy/icons/italy_logo.png" size="550,44" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG" text="IT013" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gestore Swap IT -->
+	<screen name="ItalySwapPanel" position="fill" title="Swap File Manager" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGY"/>
+		<panel name="M"/>
+		<!-- ItalySat -->
+		<widget name="autostart_off" pixmap="icons/lock_off.png" position="50,100" size="30,30" backgroundColor="#101010" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="autostart_on"  pixmap="icons/lock_on.png"  position="50,100" size="30,30" backgroundColor="bluette" alphatest="blend" transparent="1" zPosition="2" />
+		<widget name="lab1" position="90,95" size="490,40" font="Regular;24" foregroundColor="ltbluette" backgroundColor="header" transparent="1" valign="center" />
+		<eLabel position="50,140" size="545,2" backgroundColor="#202020" zPosition="1"/>
+		<widget name="lab2"     position="50,150" size="545,40" font="Regular;24" foregroundColor="#ffffff" backgroundColor="#101010" transparent="1" valign="center" />
+		<widget name="labplace" position="50,190" size="545,60" font="Regular;24" foregroundColor="#ffffff" backgroundColor="bluette" valign="top" />
+		<widget name="lab3"     position="50,280" size="545,40" font="Regular;24" backgroundColor="header" transparent="0" valign="center" />
+		<widget name="labsize"  position="50,320" size="545,40" font="Regular;24" valign="center" backgroundColor="bluette" />
+		<widget name="lab4"     position="50,380" size="545,40" font="Regular;24" backgroundColor="header" transparent="1" valign="center" />
+		<widget name="inactive" position="50,420" size="545,40" font="Regular;24" halign="center" valign="center" backgroundColor="red"   />
+		<widget name="active"   position="50,420" size="545,40" font="Regular;24" halign="center" valign="center" backgroundColor="green" zPosition="1" />
+		<ePixmap position="640,445" size="160,160" pixmap="menu/swapp.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG"  text="IT014" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Cron Manager IT -->
+	<screen name="ItalyCronManager" title="ItalySat Cron Manager" flags="wfNoBorder" position="fill" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nRGYB"/>
+		<panel name="M"/>
+		<widget name="lab1"        position="50,95"   size="180,40" font="Regular;22" valign="center" transparent="1" backgroundColor="header" zPosition="3" />
+		<widget name="labdisabled" position="50,130"  size="545,40" font="Regular;22" valign="center" halign="center" zPosition="3" backgroundColor="red" />
+		<widget name="labactive"   position="50,130"  size="545,40" font="Regular;22" valign="center" halign="center" zPosition="3" backgroundColor="green" />
+		<widget name="lab2"        position="50,170"  size="180,40" font="Regular;22" valign="center" transparent="1" backgroundColor="header" zPosition="3" />
+		<widget name="labstop"     position="50,205"  size="545,40" font="Regular;22" valign="center" halign="center" zPosition="3" backgroundColor="red" />
+		<widget name="labrun"      position="50,205"  size="545,40" font="Regular;22" valign="center" halign="center" zPosition="3" backgroundColor="green" />
+		<widget source="list" render="Listbox" position="50,240" size="545,300" zPosition="2" scrollbarMode="showOnDemand" backgroundColor="bluette" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (5, 1), size = (545, 30), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+					],
+					"fonts": [gFont("Regular", 24)],
+					"itemHeight": 30
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" size="160,160" pixmap="menu/cron.png" alphatest="blend"/>
+		<ePixmap position="960,100" pixmap="iDreamy/menu/info_screen.png"  size="160,160" alphatest="blend" zPosition="2" />
+		<widget name="key"         position="840,300" size="400,200" font="Regular;24" halign="center" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<!-- eLabel name="DEBUG"  text="IT015" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Cron Manager IT -->
+	<screen name="ItalySetupCronConf" title="ItalySat Cron Setup" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRG"/>
+		<panel name="M"/>
+		<widget name="config" position="50,95" size="545,510" font="Regular;22" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<ePixmap position="640,445" size="160,160" pixmap="menu/cron.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="IT016" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gestore Fast Plugin IT  -->
+	<screen name="ItalyFastPlugin" title="ItalySat Fast Plugin Setup" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nR"/>
+		<widget source="list" render="Listbox" position="50,110" size="545,480" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (120, 0), size = (420, 40), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 1 is the description
+					MultiContentEntryText(pos = (120, 25), size = (420, 40), font=1, color=0x73c6ff, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the description
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 10), size = (100, 50), png = 2), # index 4 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
+					"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" size="160,160" pixmap="menu/plugin_selection.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="IT017" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gestore Pcsc IT -->
+	<screen name="ItalyPcsc" title="ItalySat Pcsc Panel" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRG"/>
+		<widget name="lab1"    position="50,95"  size="545,50" font="Regular;22" halign="center" valign="center" foregroundColor="ltbluette" backgroundColor="bluette" transparent="0" />
+		<widget name="lab2"    position="50,220" size="545,40" zPosition="3" font="Regular;22" valign="center" backgroundColor="#101010" transparent="1" />
+		<widget name="labstop" position="50,260" size="545,40" zPosition="3" font="Regular;22" valign="center" halign="center" backgroundColor="red" />
+		<widget name="labrun"  position="50,260" size="545,40" zPosition="3" font="Regular;22" valign="center" halign="center" backgroundColor="green" />
+		<ePixmap position="640,445" size="160,160" pixmap="menu/deviceusb.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="IT018" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gestore DTT IT -->
+	<screen name="ItalyDttModule" title="DTT Download Manager" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGYB"/>
+		<widget  source="list" render="Listbox" position="50,105" size="545,490" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (55, 2), size = (500, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+					MultiContentEntryPixmapAlphaBlend(pos = (7, 5), size = (24, 24), png = 3) # index 4 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 22),gFont("Regular", 20)],
+					"itemHeight": 35
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" size="160,160" pixmap="menu/devices.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="IT019" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gestore WIFI IT -->
+	<screen name="ItalyWifiModule" title="Wifi Download Manager" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGY"/>
+		<widget  source="list" render="Listbox" position="50,105" size="545,490" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (55, 2), size = (500, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+					MultiContentEntryPixmapAlphaBlend(pos = (7, 5), size = (24, 24), png = 3) # index 4 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 22),gFont("Regular", 20)],
+					"itemHeight": 35
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" size="160,160" pixmap="menu/wifi.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="IT020" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+	
+	<!-- MULTIBOOT -->
+
+	<!-- ItalySat MoutiBoot Installation IT -->
+	<screen name="ItalyBootInstallation" title="ItalyBoot - Installation" position="fill" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGYB"/>
+		<widget name="label1" position="50,95"  size="545,50"  halign="center" font="Regular;22" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="label2" position="50,150" size="545,200" halign="center" font="Regular;22" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="config" position="50,370" size="545,200" font="Regular;22" itemHeight="40" scrollbarMode="showOnDemand" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT020" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat MoutiBoot BootInstaller IT -->
+	<screen name="ItalyBootImageInstall" title="ItalyBoot - Image Installation" position="fill" backgroundColor="transparent" flags="wfNoBorder">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRG"/>
+		<widget name="config" position="50,95" size="545,490" font="Regular;22" itemHeight="35" scrollbarMode="showOnDemand" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT021" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat MoutiBoot Choose Image  IT -->
+	<screen name="ItalyBootImageChoose" title="ItalyBoot - Menu" flags="wfNoBorder" position="fill" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGYB"/>
+		<widget name="label1" position="50,95"  size="545,40"  font="Regular;22" halign="center" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="label2" position="50,150" size="545,180" font="Regular;22" halign="center" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="config" position="50,370" size="545,200" font="Regular;22" itemHeight="40" scrollbarMode="showOnDemand" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT022" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gestore Network > Mediatomb IT -->
+	<screen name="ItalyMediatombPanel" title="ItalySat UPnP Server Panel" flags="wfNoBorder" position="fill" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGY"/>
+		<widget name="lab1"     position="50,95"  size="760,400" font="Regular;22" halign="center" valign="top" backgroundColor="header" transparent="1" />
+		<widget name="lab2"     position="50,500" size="760,40"  font="Regular;22" valign="center" backgroundColor="header" transparent="1" zPosition="3" />
+		<widget name="labstop"  position="50,550" size="760,40"  zPosition="3" font="Regular;22" valign="center" halign="center" backgroundColor="red" />
+		<widget name="labstart" position="50,550" size="760,40"  zPosition="3" font="Regular;22" valign="center" halign="center" backgroundColor="green" />
+		<!-- eLabel name="DEBUG" text="IT024" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Addon List IT -->
+	<screen name="ItalyAddonsMenu" position="fill" title="ItalySat Addons" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="fakeExit"/>
+		<widget source="list" render="Listbox" position="50,110" size="545,450" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (55, 5), size = (700, 40), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+					MultiContentEntryPixmapAlphaBlend(pos = (10, 9), size = (36, 36), png = 2) # index 1 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
+					"itemHeight": 50
+				}
+			</convert>
+		</widget>
+		<widget source="conn" render="Label" zPosition="1" position="50,570" size="545,65" font="Regular;22" valign="top" halign="center" foregroundColor="yellow" backgroundColor="header" transparent="1" />	  
+		<!-- eLabel name="DEBUG" text="IT025" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Script IT -->
+	<screen name="ItalyScriptPanel" position="fill" title="ItalySat Script" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nR"/>
+		<widget source="list" render="Listbox" position="50,110" size="760,500" zPosition="2" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (10, 1), size = (750, 40), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+					],
+					"fonts": [gFont("Regular", 24)],
+					"itemHeight": 50
+				}
+			</convert>
+		</widget>
+		<ePixmap position="960,100" pixmap="iDreamy/menu/info_screen.png"  size="160,160" alphatest="blend" zPosition="2" />
+		<widget name="labstatus" position="840,300" size="400,200" font="Regular; 22" halign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="IT026" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Inadyn IT -->
+	<screen name="InadynSetup" position="fill" title="ItalySat Inadyn Config" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nR"/>
+		<widget name="config" position="50,95" size="545,510" font="Regular;22" itemHeight="35" scrollbarMode="showOnDemand" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT027" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Extra CAM Download IT -->
+	<screen name="ItalyExtraList" position="fill" title="Extra Addons Manager" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRG"/>
+		<widget source="list" render="Listbox" position="50,95" size="545,480" zPosition="2" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (5, 1), size = (750, 40), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+					],
+					"fonts": [gFont("Regular", 24)],
+					"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<!-- eLabel name="DEBUG" text="IT028" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+	
+	<!-- ItalySat Extra Download IT -->
+	<screen name="ItalyExtraDown" position="fill" title="Downloads Extra Plugins" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Ext"/>
+		<panel name="p800_DateMid"/>
+		<panel name="nRG"/>
+		<widget source="list" render="Listbox" position="50,95" size="760,480" zPosition="2" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (5, 1), size = (750, 40), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+					],
+					"fonts": [gFont("Regular", 24)],
+					"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<ePixmap position="960,100" pixmap="iDreamy/menu/info_screen.png"  size="160,160" alphatest="blend" zPosition="2" />
+		<widget source="conn" render="Label" position="840,300" size="400,200" font="Regular; 22" halign="center" foregroundColor="#ffffff" backgroundColor="bluette" transparent="1" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="IT029" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Addon Manual Install IT -->
+	<screen name="ItalyIPKInstaller" position="fill" title="Manual Install" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<panel name="sRGYB"/>
+		<widget name="lab1" position="50,95" size="760,40"  font="Regular;22" foregroundColor="white" backgroundColor="bluette" halign="center" transparent="0" zPosition="2" />
+		<widget name="list" position="50,140" size="760,440" font="Regular;22" foregroundColor="ltbluette" backgroundColor="header" itemHeight="40" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="IT030" position="40,25" size="500,50" font="Regular;40" itemHeight="40" foregroundColor="#bc0004" backgroundColor="header" transparent="1" zPosition="99" /-->
+	</screen>
+	
+	<!-- ItalySat Download Linguaggi IT -->
+	<screen name="LanguageDownload" position="fill" title="Language Download" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="nR"/>
+		<widget name="textinfo" position="50,95"  size="545,80" font="Regular;32" valign="center" halign="left" backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="lab1"     position="50,220" size="545,340" scrollbarMode="showOnDemand" backgroundColor="header" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT031" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Green Panel OK (Plugin Panel) IT -->
+	<screen name="ItalyGreen" position="fill" title="ItalySat GreenPanel" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="nRGYB"/>
+		<ePixmap position="600,95" size="15,510" pixmap="box/maxbar.png" alphatest="blend" zPosition="6"/>
+		<widget source="list" render="Listbox" position="50,100" size="560,495" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="5">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (120, 1), size = (510, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 1 is the description
+					MultiContentEntryText(pos = (120, 26), size = (510, 30), font=1, color=0x73c6ff, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is the description
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 8), size = (100, 60), png = 2), # index 4 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 22),gFont("Regular", 20)],
+					"itemHeight": 55
+				}
+			</convert>
+		</widget>
+		<!-- ItalySat -->
+		<widget source="conn" render="Label" position="232,489" size="330,180" font="Regular;20" valign="top" halign="center" foregroundColor="ltbluette" backgroundColor="black"  transparent="1" />	  
+		<ePixmap position="640,445" size="160,160" pixmap="menu/plugin_selection.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="IT032" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gigablue VFD IT -->
+	<screen name="VFD_GigaSetup" position="fill" title="VFD Giga Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRG"/>
+		<widget name="config" position="50,95" size="545,480" font="Regular;24" itemHeight="40" backgroundColor="header" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT033" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Gigablue LED IT -->
+	<screen name="LED_GigaSetup" position="fill" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<panel name="nRG"/>
+		<widget name="config" position="50,95" size="545,480" font="Regular;24" itemHeight="40" backgroundColor="header" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT034" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Download -->
+	<screen name="ItalyDownloader" title="ItalySat Addons" position="center,center" size="600,300" backgroundColor="transparent" >
+		<eLabel position="0,0" size="600,300" backgroundColor="#10000000" />
+		<widget source="fname"       render="Label"    position="20,20" size="560,60" font="Regular;24" halign="center" valign="center" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="2" />
+		<widget source="progressbar" render="Progress" position="20,120" size="560,20" transparent="1"  zPosition="2" />
+		<widget source="status"      render="Label"    position="20,180" size="560,90" font="Regular;32" halign="center" valign="center" backgroundColor="header" transparent="1" zPosition="3" />
+		<!-- eLabel name="DEBUG" text="IT035" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+	
+	<!-- Green Panel > Blue > Memory OK -->
+	<screen name="ItalyMemoryPanel" position="fill" title="ItalySat Memory Info" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p1200_Template"/>
+		<panel name="p800_DateMid"/>
+		<!-- Memory -->
+		<eLabel text="Flash Total" font="Regular;26" position="50,90" size="590,32" halign="center"    foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="flashbar" position="50,90" size="590,35" borderWidth="1" borderColor="grey"      backgroundColor="bluette"   transparent="1" zPosition="1" />
+		<widget name="flash1"   position="50,130" size="590,37" font="Regular; 20" halign="center"     foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2"  />
+		<widget name="flash2"   position="50,170" size="590,37" font="Regular; 20" halign="center"     foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2"  />
+		<eLabel text="Ram Total" font="Regular;26" position="50,220" size="590,32" halign="center"     foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="rambar"   position="50,220" size="590,35" borderWidth="1" borderColor="grey"     backgroundColor="bluette"   transparent="1" zPosition="1" />
+		<widget name="ram1"     position="50,260" size="590,37" font="Regular; 20" halign="center"     foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2"/>
+		<widget name="ram2"     position="50,300" size="590,37" font="Regular; 20" halign="center"     foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<eLabel text="Swapp Total" font="Regular;26" position="50,350" size="590,32" halign="center"   foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="swapbar"  position="50,350" size="590,35" borderWidth="1" borderColor="grey"     backgroundColor="bluette"   transparent="1" zPosition="1" />
+		<widget name="swap1"    position="50,390" size="590,37" font="Regular; 20" halign="center"     foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<widget name="swap2"    position="50,430" size="590,37" font="Regular; 20" halign="center"     foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<eLabel text="Memory Total" font="Regular;26" position="50,480" size="590,32" halign="center"  foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="totalbar" position="50,480" size="590,35" borderWidth="2" borderColor="red"      backgroundColor="bluette"   transparent="1" zPosition="1" />
+		<widget name="total1"   position="50,520" size="590,37" font="Regular; 20" halign="center"     foregroundColor="bluette"   backgroundColor="ltbluette" zPosition="2" />
+		<widget name="total2"   position="50,560" size="590,37" font="Regular; 20" halign="center"     foregroundColor="bluette"   backgroundColor="ltbluette" zPosition="2" />
+		<!-- Space -->
+		<eLabel text="USB Total" font="Regular;26"  position="660,90" size="570,32" halign="center"   foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="usbbar"   position="660,90"  size="570,35" borderWidth="1" borderColor="grey"   backgroundColor="bluette"   transparent="1" zPosition="1" />
+		<widget name="usb1"     position="660,130" size="570,37" font="Regular; 20" halign="center"   foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<widget name="usb2"     position="660,170" size="570,37" font="Regular; 20" halign="center"   foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<eLabel text="HDD Total" font="Regular;26"  position="660,220" size="570,32" halign="center"  foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="hddbar"   position="660,220" size="570,35" borderWidth="1" borderColor="grey"   backgroundColor="bluette"   transparent="1" zPosition="1" />
+		<widget name="hdd1"     position="660,260" size="570,37" font="Regular; 20" halign="center"   foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<widget name="hdd2"     position="660,300" size="570,37" font="Regular; 20" halign="center"   foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<eLabel text="CF Total" font="Regular;26" position="660,350" size="570,32" halign="center"    foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="cfbar"    position="660,350" size="570,35" borderWidth="1" borderColor="grey"   backgroundColor="bluette"   transparent="1"  zPosition="1" />
+		<widget name="cf1"      position="660,390" size="570,37" font="Regular;20" halign="center"    foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<widget name="cf2"      position="660,430" size="570,37" font="Regular;20" halign="center"    foregroundColor="ltbluette" backgroundColor="bluette" zPosition="2" />
+		<eLabel text="Space Total" font="Regular;26" position="660,480" size="570,32" halign="center" foregroundColor="yellow"    backgroundColor="header" transparent="1" zPosition="2" />
+		<widget name="totbar" position="660,480" size="570,35" borderWidth="2" borderColor="red"      backgroundColor="bluette"   transparent="1" zPosition="1" />
+		<widget name="tot1"   position="660,520" size="570,37" font="Regular; 20" halign="center"     foregroundColor="bluette"   backgroundColor="ltbluette" zPosition="2" />
+		<widget name="tot2"   position="660,560" size="570,37" font="Regular; 20" halign="center"     foregroundColor="bluette"   backgroundColor="ltbluette" zPosition="2" />
+		<!-- Active Services Panel -->
+		<ePixmap              position="50,655"  size="33,33"  pixmap="buttons/greenpanel.png" alphatest="blend" zPosition="1" />
+		<widget name="bot1"   position="50,655"  size="33,33"  pixmap="buttons/greypanel.png"  alphatest="blend" transparent="1" zPosition="2" />
+		<eLabel text="SSH"    position="90,653"  size="140,40" font="Regular;22" halign="left" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="3" />
+		<ePixmap              position="170,655" size="33,33"  pixmap="buttons/greenpanel.png" alphatest="blend" zPosition="1" />
+		<widget name="bot2"   position="170,655" size="33,33"  pixmap="buttons/greypanel.png"  alphatest="blend" transparent="1" zPosition="2" />
+		<eLabel text="TELNET" position="210,653" size="140,40" font="Regular;22" halign="left" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="3" />
+		<ePixmap              position="330,655" size="33,33"  pixmap="buttons/greenpanel.png" alphatest="blend" zPosition="1" />
+		<widget name="bot8"   position="330,655" size="33,33"  pixmap="buttons/greypanel.png"  alphatest="blend" transparent="1" zPosition="2" />
+		<eLabel text="SAMBA"  position="370,653" size="140,40" font="Regular;22" halign="left" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="3" />
+		<ePixmap              position="490,655" size="33,33"  pixmap="buttons/greenpanel.png" alphatest="blend" zPosition="1" />
+		<widget name="bot6"   position="490,655" size="33,33"  pixmap="buttons/greypanel.png"  alphatest="blend" transparent="1" zPosition="2" />
+		<eLabel text="VPN"    position="530,653" size="140,40" font="Regular;22" halign="left" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="3" />
+		<ePixmap              position="610,655" size="33,33"  pixmap="buttons/greenpanel.png" alphatest="blend" zPosition="1" />
+		<widget name="bot4"   position="610,655" size="33,33"  pixmap="buttons/greypanel.png"  alphatest="blend" transparent="1" zPosition="2" />
+		<eLabel text="FTP"    position="650,653" size="140,40" font="Regular;22" halign="left" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="3" />
+		<ePixmap              position="730,655" size="33,33" pixmap="buttons/greenpanel.png"  alphatest="blend" zPosition="1" />
+		<widget name="bot11"  position="730,655" size="33,33" pixmap="buttons/greypanel.png"   alphatest="blend" transparent="1" zPosition="2" />
+		<eLabel text="NFS"    position="770,653" size="140,40" font="Regular;22" halign="left" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="3" />
+		<widget name="bot3"  size="0,0" position="1645,150" pixmap="buttons/greypanel.png" alphatest="blend" transparent="1" zPosition="1" />  
+		<widget name="bot5"  size="0,0" position="1645,200" pixmap="buttons/greypanel.png" alphatest="blend" transparent="1" zPosition="1" />  
+		<widget name="bot7"  size="0,0" position="1645,250" pixmap="buttons/greypanel.png" alphatest="blend" transparent="1" zPosition="1" />  
+		<widget name="bot9"  size="0,0" position="1645,300" pixmap="buttons/greypanel.png" alphatest="blend" transparent="1" zPosition="1" />  
+		<widget name="bot10" size="0,0" position="1645,325" pixmap="buttons/greypanel.png" alphatest="blend" transparent="1" zPosition="2" />
+		<ePixmap position="70,975"  pixmap="iDreamy/icons/italy_logo.png" size="900,70" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG" text="IT036" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Manager -->
+	<screen name="ItalyAddonsManager" position="fill" title="Addons Manager" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>
+		<panel name="p800_Date"/>
+		<widget name="status" position="50,95" size="545,60" font="Regular;22" valign="center" halign="center" backgroundColor="header" zPosition="1" />
+		<widget source="list" render="Listbox" position="50,95" size="545,490" scrollbarMode="showOnDemand" transparent="1" zposition="2">
+			<convert type="TemplatedMultiContent">
+	            	{"template": [
+	               	MultiContentEntryText(pos = (50, 1), size = (680, 36), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+	             	MultiContentEntryPixmapAlphaTest(pos = (4, 4), size = (36, 36), png = 1),
+	                	],
+	                	"fonts": [gFont("Regular", 24)],
+	                	"itemHeight": 40
+	            	}
+	        		</convert>
+		</widget>
+		<ePixmap position="640,445" size="160,160" pixmap="menu/plugin_selection.png" alphatest="blend"/>
+		<ePixmap position="50,645"  pixmap="iDreamy/icons/italy_logo.png" size="550,44" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG" text="IT037" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+	
+	<!-- ItalySat Download Manager -->
+	<screen name="ItalySatDownManager" position="fill" title="Download Manager" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<widget source="list" render="Listbox" position="50,95" size="765,490" scrollbarMode="showOnDemand" zposition="2">
+			<convert type="TemplatedMultiContent">
+	            	{"template": [
+	               	MultiContentEntryText(pos = (5, 2), size = (755, 35), flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+	             	MultiContentEntryPixmapAlphaTest(pos = (4, 2), size = (36, 36), png = 1),
+	                	],
+	                	"fonts": [gFont("Regular", 24)],
+	                	"itemHeight": 35
+	            	}
+	        		</convert>
+		</widget>
+		<ePixmap position="50,645"  pixmap="iDreamy/icons/italy_logo.png" size="550,44" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG" text="IT038" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Details Pack -->
+	<screen name="ItalyDetailsPack" position="fill" title="Download Manager" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<panel name="nRGY"/>
+		<widget name="infotext" position="50,95" size="760,300" font="Regular;22" backgroundColor="header" transparent="1" zPosition="2" />
+		<widget source="conn" render="Label" position="50,450" size="760,100" font="Regular;22" foregroundColor="ltbluette" backgroundColor="header" transparent="1" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="IT040" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Connection -->
+	<screen name="ItalyConnection" position="center,center" size="540,280" backgroundColor="transparent" flags="wfNoBorder" >
+		<widget name="connect" position="0,0" size="550,290" zPosition="-1" pixmaps="skin_default/italy_icons/connection_1.png,skin_default/italy_icons/connection_2.png,skin_default/italy_icons/connection_3.png,skin_default/italy_icons/connection_4.png,skin_default/italy_icons/connection_5.png" transparent="1" />
+		<widget name="lab1" position="40,170" halign="center" size="430,49" zPosition="1" font="Regular;24" valign="top" foregroundColor="yellow" backgroundColor="header" transparent="1" />
+		<!-- eLabel name="DEBUG" text="IT041" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat File Preview -->
+	<screen name="ItalyFilePreview" position="fill" title="ItalySat Preview" backgroundColor="transparent" flags="wfNoBorder" >
+		<widget name="lab1" position="0,0" size="1280,720" zPosition="1" />
+		<widget name="lab2" position="0,10" size="1280,40" font="Regular;26" halign="center" valign="center" backgroundColor="red" foregroundColor="white" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="IT039" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat AutoClearMem -->
+	<screen name="ClearMemAutoScreen" position="0,0" size="1280,60" title="ClearMem Status" backgroundColor="#FF000000" zPosition="10" flags="wfNoBorder" >
+		<widget name="message_label" position="0,0" size="1280,0" font="Regular;24" valign="center" halign="right" foregroundColor="#606060" backgroundColor="#FF000000" transparent="1" zPosition="2"  />
+	</screen>
+
+	<!-- ItalySat IPTV VOD Downloader -->
+	<screen name="ItalyVODMin" position="fill" title="ItalySat Vod Manager" backgroundColor="#FF000000" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<widget name="onda"      position="50,95"  size="765,40" font="Regular;26" halign="center" valign="center" foregroundColor="#ffffff" backgroundColor="trbluette" transparent="0" zPosition="1" />  
+		<widget name="MainList"  position="50,150" size="765,480" itemHeight="60" scrollbarMode="showOnDemand" enableWrapAround="1" 
+		                         foregroundColor="#5dafff" foregroundColorSelected="green" backgroundColor="#303030" backgroundColorSelected="trbluette" transparent="1" zPosition="5" />
+		<ePixmap position="260,660" size="50,50" pixmap="buttons/greypanel.png" alphatest="blend"/>
+		<ePixmap position="460,660" size="50,50" pixmap="buttons/greypanel.png" alphatest="blend"/>
+		<widget name="Red"       position="60,660"  size="50,50"  pixmap="buttons/redpanel.png" alphatest="blend" />
+		<widget name="Key_Red"   position="100,660" size="200,50" font="Regular;20" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="Green"      position="260,660" size="50,50"  pixmap="buttons/greenpanel.png" alphatest="blend" zPosition="2" />
+		<widget name="Key_Green"  position="300,660" size="200,50" font="Regular;20" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="Yellow"     position="460,660" size="50,50"  pixmap="buttons/yellowpanel.png" alphatest="blend" zPosition="2" />
+		<widget name="Key_Yellow" position="500,660" size="200,50" font="Regular;20" backgroundColor="header" transparent="1" zPosition="1" />
+		<widget name="Blue"       position="660,660"  size="50,50"  pixmap="buttons/bluepanel.png" alphatest="blend" />
+		<widget name="Key_Blue"   position="700,660" size="200,50" font="Regular;20" backgroundColor="header" transparent="1" zPosition="1" />
+		<ePixmap position="1080,465" size="160,160" pixmap="menu/download.png" alphatest="blend"/>
+		<!-- eLabel name="DEBUG" text="IT040" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat IPTV VOD List -->
+	<screen name="ItalyVodList" position="fill" title="ItalySat Vod List" backgroundColor="#FF000000" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<widget source="list" render="Listbox" position="50,100" size="765,400" itemHeight="40" scrollbarMode="showOnDemand"
+			foregroundColor="#5dafff" foregroundColorSelected="green" backgroundColor="#303030" backgroundColorSelected="trbluette" transparent="1" zPosition="5" >
+			<convert type="StringList" />
+		</widget>
+		<widget name="labstatus" position="50,580" size="765,30" font="Regular;18" valign="center" noWrap="1" foregroundColor="ltbluette" backgroundColor="header" transparent="1" />
+		<ePixmap position="60,660" size="50,50" pixmap="buttons/redpanel.png" alphatest="blend"/>
+		<widget name="key_red" position="100,660" size="200,50" font="Regular;20" backgroundColor="header" transparent="1" zPosition="1" />
+		<!-- eLabel name="DEBUG" text="IT041" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat LCN Scanner -->
+	<screen name="LCNScannerPlugin" position="fill" title="LCN Scanner" backgroundColor="transparent" flags="wfNoBorder">
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<panel name="p800_Logo"/>
+		<panel name="nR" />
+		<ePixmap position="980,40" size="300,300" pixmap="menu/satellite.png" alphatest="blend" zPosition="2" />
+		<widget name="progress" position="50,100" size="540,20" borderWidth="1" />
+		<widget name="log" position="50,140"      size="540,440" font="Regular;20" foregroundColor="white" backgroundColor="header" transparent="1" />
+		<ePixmap position="640,440" size="300,300" pixmap="menu/scansat.png" alphatest="blend" zPosition="2" />
+		<!-- eLabel name="DEBUG" text="IT042" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat LCN DTT Uploader -->
+	<screen name="UploaderDtt" position="fill" title="DTT Uploader" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Date"/>
+		<panel name="p800_Logo"/>
+		<panel name="nRGY" />
+		<ePixmap position="980,40" size="300,300" pixmap="menu/download.png" alphatest="blend" zPosition="2" />
+		<widget name="lab1"       position="50,100"  size="540,30"  font="Regular;24" foregroundColor="ltbluette" backgroundColor="header" transparent="1" />
+		<widget name="config"     position="50,130"  size="100,80"  font="Regular;24" valign="center" backgroundColor="header" transparent="1" />
+		<widget name="configcity" position="150,130" size="490,80"  font="Regular;24" valign="center" backgroundColor="header" transparent="1" />
+		<widget name="list"       position="50,220"  size="540,350" font="Regular;22" itemHeight="35" scrollbarMode="showOnDemand" transparent="1" zPosition="2" />
+		<eLabel position="50,200" size="540,2" backgroundColor="#10202020" zPosition="5" />
+		<!-- eLabel name="DEBUG" text="IT043" position="40,25" size="500,50" font="Regular;40" backgroundColor="#10000000" foregroundColor="#bc0004" transparent="1" zPosition="99" /-->
+	</screen>
+
+	<!-- ItalySat Blue Panel > Blue > Setting Menu IT -->
+	<screen name="ItalyDebugPanel" title="ItalySat Debug" position="fill" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="p800_Template"/>
+		<panel name="p800_Logo"/>		
+		<panel name="p800_Date"/>
+		<widget source="list" render="Listbox" position="50,95" size="545,520" scrollbarMode="showNever" enableWrapAround="1" transparent="1" zPosition="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (50, 0), size = (500, 40), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 5), size = (40, 40), png = 1) # index 1 is the status pixmap
+					],
+					"fonts": [gFont("Regular", 22),gFont("Regular", 20)],
+					"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<ePixmap position="640,445" pixmap="iDreamy/menu/ico_italy.png" size="160,160" alphatest="blend" zPosition="1" />
+		<ePixmap position="50,645"  pixmap="iDreamy/icons/italy_logo.png" size="550,44" alphatest="blend" zPosition="1" />
+		<!-- eLabel name="DEBUG"  text="IT044" position="40,40" size="300,60" font="Regular;40"  foregroundColor="red" backgroundColor="#10202020" transparent="1" zPosition="99" /-->
+	</screen>
+
+</skin>
